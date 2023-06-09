@@ -46,15 +46,14 @@ import org.testng.annotations.AfterTest;
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			driver.findElement(By.name("email")).sendKeys("vero.va3@gmail.com");
 			driver.findElement(By.name("password")).sendKeys("Alejandro76");
-			driver.findElement(By.xpath("//button[@class=\"v2-button primary-button button--fullWidth LOGIN-submit\"]")).click();
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			driver.findElement(By.xpath("//button[@class='v2-button primary-button button--fullWidth LOGIN-submit']")).click();
 			
-			WebDriverWait wait2 = new WebDriverWait(driver, 15);
+			//WebDriverWait wait2 = new WebDriverWait(driver, 15);
 			
-			wait2.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//img[@alt='client brand banner']")));
+			//wait2.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@class='nav-link universal-tab__link']")));
 			
 			Reporter.log("Step 3 - User is logged successfully");
-			boolean profilePictureIsDisplayed = driver.findElement(By.xpath("//img[@class='oxd-userdropdown-img']")).isDisplayed();
+			boolean profilePictureIsDisplayed = driver.findElement(By.xpath("//a[@class='nav-link universal-tab__link']")).isDisplayed();
 			Assert.assertEquals(profilePictureIsDisplayed, true);
 			
 			
@@ -113,7 +112,7 @@ import org.testng.annotations.AfterTest;
 
 		@AfterTest
 		public void afterTest() {
-			System.out.println("After Test");
+			System.out.println("After Test, is ready");
 		}
 		  public static void main(String[] args) {
 		        Login loginTest = new Login();
